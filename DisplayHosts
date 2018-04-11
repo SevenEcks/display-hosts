@@ -1,0 +1,41 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * (c) Brendan Butts <bbutts@stormcode.net>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
+/**
+ * @author Brendan Butts <bbutts@stormcode.net>
+ */
+ 
+// Composer global install
+if (file_exists($a = __DIR__.'/../../autoload.php')) {
+    require_once $a;
+} else {
+    // composr local intall
+    require_once __DIR__.'/vendor/autoload.php';
+}
+
+use SevenEcks\Tableify\Tableify;
+
+$lines = file('/etc/hosts');
+$parsed_hosts = [
+    ['IP', 'Hostname']
+];
+foreach ($lines as $line) {
+    // skip lines starting with #
+    $line = trim($line);
+    if (strpos($line, '#') === 0) {
+        continue;
+    }
+    $arr = preg_split('/[\s]+/', $line);
+    $parsed_hosts[] = $arr;
+}
+$table_data = Tableify::new($parsed_hosts)->make()->toArray();
+foreach ($table_data as $row) {
+    echo $row . "\n";
+}

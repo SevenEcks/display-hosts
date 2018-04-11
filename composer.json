@@ -1,0 +1,27 @@
+{
+    "name": "sevenecks/display-hosts",
+    "description": "pretty print the hosts file for the os",
+    "type": "package",
+    "require": {
+        "sevenecks/tableify": "^0.0.5"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brendan Butts",
+            "email": "bbutts@stormcode.net"
+        }
+    ],
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "SevenEcks\\DisplayHosts\\": "src/"
+        }
+    },
+     "bin": [
+        "bin/DisplayHosts"
+    ],
+}
