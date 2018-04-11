@@ -16,7 +16,7 @@ Via Composer
 ### Global
 
 ```bash
-composer require sevenecks/display-hosts --global
+composer global require sevenecks/display-hosts
 ```
 
 ### Local
