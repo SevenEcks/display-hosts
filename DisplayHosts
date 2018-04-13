@@ -11,7 +11,6 @@
 /**
  * @author Brendan Butts <bbutts@stormcode.net>
  */
- 
 // Composer global install
 if (file_exists($a = __DIR__.'/../../autoload.php')) {
     require_once $a;
@@ -22,13 +21,20 @@ if (file_exists($a = __DIR__.'/../../autoload.php')) {
 
 use SevenEcks\Tableify\Tableify;
 
-$lines = file('/etc/hosts');
+if (file_exists('.env')) {
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
+}
+$path_to_hosts_file = !empty(getenv('PATH_TO_HOSTS')) ? getenv('PATH_TO_HOSTS') : '/etc/hosts';
+$lines = file($path_to_hosts_file);
+
 $parsed_hosts = [
     ['IP', 'Hostname']
 ];
+
 foreach ($lines as $line) {
-    // skip lines starting with #
     $line = trim($line);
+    // skip lines starting with #
     if (strpos($line, '#') === 0) {
         continue;
     }

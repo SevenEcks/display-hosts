@@ -27,17 +27,18 @@ composer require sevenecks/display-hosts
 ### CLI Usage
 
 #### Global Install
+If you are on a system where the hosts file is located at /etc/hosts then you have no further configuration to do. If you are not, then you should go to the global composer directory, go into the vendor folder, copy the .env-example  file to .env and edit it to point to your hosts file. Then you can proceed.
+
 ```bash
 DisplayHosts
 ```
 
 #### Local Install
+If you are on a system where the hosts file is located at /etc/hosts then you have no further configuration to do. If you are not, then you should go into the vendor folder, copy the .env-example  file to .env and edit it to point to your hosts file. Then you can proceed.
+
 ```bash
 ./vendor/bin/DisplayHosts
 ```
-
-## ToDo
-1. Make it use dotenv to set a path to hosts file
 
 ## Contributing
 

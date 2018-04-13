@@ -1,3 +1,8 @@
+## 0.0.5 - 2018-04-13
+
+- Added phpdotenv integration
+- Updated readme
+
 ## 0.0.4 - 2018-04-10
 
 - Updated composer.json to point to correct bin file for global install
